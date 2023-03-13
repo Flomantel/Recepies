@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel='stylesheet' href='static/css/header.css'>
+{% endblock %}
+
+{% block title %}Landing Page{% endblock %}
+
+{% block body %}
+    <h1>Welcome to my Website</h1> 
+
+    <div class='button'>
+        <nav>
+            <button><a href="/flo-ma">F.M.</a></button>
+            <button><a href="/profession">Profession</a></button>
+        </nav>
+    </div>
+
+    <br>
+
+    <div class='intro'>
+        <img src='static/image/funny.jpeg' alt='Florian looking with big eyes in the camera'>   
+            <br>
+            <div class="text">    
+            <article> 
+                Hello, my Name is Florian Mantel. I want to improve my Flask skills for this reason I want to create a small web-application. I will talk a bit about myself and my carrerr as a chef and my decision to leave the hospitallity industry.
+                <br><br>
+                I hope you have the same fun as me during the programming.
+            </article>
+        </div>
+            <br>
+        <img src='static/image/firework.jpeg' alt='Florian with firework in his mouth'>
+    </div>
+
+    <br>
+
+    <div class="shop">
+        <ul margin="auto">
+            {% for slug, shop in merch.items() %}
+
+                <li>
+                    <a href="/shop/{{slug}}"> {{ shop['name'] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <br><br>
+
+    <div class="contact">
+    <a href="static/download/contact.txt">Contact Details</a>
+    </div>
+
+    <br><br>
+
+    <div class="mail">
+        <a href="mailto: florian.mantel@yahoo.de?subject=Mail from my Website">Send me an email</a>
+    </div>
+
+
+
+{% endblock %}
