@@ -3,6 +3,17 @@
 {% block head %}
     {{ super() }}
     <link rel='stylesheet' href='../static/css/main.css'>
+    <style>
+        
+        li {
+            font-size: 20px;
+        }
+        li:hover {
+            font-size: 40px;
+        }
+
+    </style>
+        
     {% block title %}Profession{% endblock %}
 {% endblock %}
 {% block body %}
@@ -12,9 +23,9 @@
 <div class="profession">
     <ul margin="0 auto" list-style-type="none" class="list">
 
-        {% for slug, profession in  work.items() %}
+        {% for profession in  work %}
         <li>
-            {{ profession['name']}}, {{ profession['employed-as']}}
+            {{ profession.name }}, {{ profession.employed }}
         </li>
         {% endfor %}
     </ul>

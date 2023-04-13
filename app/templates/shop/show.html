@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+
+    {% for recipe in recipe_pagination.items %}
+        {% if recipe.name != None: %}
+            <br><br>
+            <b><u>{{recipe.name}}:</u></b>
+            <br><br>
+            {{recipe.content}}
+            <br><br>
+            <form action='/category/{{ category.id }}/delete' method='POST'>
+                <input type='hidden' name='_method' value='{{recipe.id}}'>
+                <button type="submit">Delete</button>
+            </form>
+            <br><br>
+            <div class="edit">
+                <a type='submit' href='/edit/{{recipe.id}}'>Edit</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <br><br>
+
+    <nav align="center">
+
+        {% if recipe_pagination.prev_num %}
+            <a href='/category/{{category.id}}?page={{ recipe_pagination.prev_num}}'>Previous Page</a>
+        {% else %}
+            <span>Previous Page </span>
+        {% endif %}
+
+        <span> - </span>
+        
+        {% if recipe_pagination.next_num %}
+            <a href='/category/{{category.id}}?page={{ recipe_pagination.next_num}}'>Next Page</a>
+        {% else %}
+            <span>Next Page</span>
+        {% endif %}
+
+    </nav>
+    <br><br>
+    <footer>
+        <button><a href="/">Back</a></button>
+    </footer>
+
+{% endblock %}

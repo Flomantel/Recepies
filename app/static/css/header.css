@@ -3,7 +3,6 @@ button {
     padding: 5px 5px 5px 5px;
     display: inline;
     width: 100px;
-    margin-left: 20px;
     
 
 }
@@ -76,6 +75,7 @@ article:hover {
 }
 
 
+
 @media only screen and (max-width: 700px) {
     .intro {
         display: flex;
@@ -117,6 +117,8 @@ article:hover {
         align-items: center;
     }
 }
+
+
 
 
 @media only screen and (min-width: 992px) {

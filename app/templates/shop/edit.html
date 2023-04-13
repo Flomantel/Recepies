@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block head %}
+{{super()}}
+<link rel='stylesheet' href='static/css/form.css' />
+
+{% endblock %}
+
+{% block title %}Edit {% endblock %}
+{% block body %}
+<form method="post" action="/edit/{{ recipe.id }}">
+    <br /><br />
+    <ul decoration-style="none" aling="center">
+        <li>
+            <label for="name_recipe">Name of the recipe:</label>
+            <input type="text" class='form-control' id="name" name="name" value='{{ recipe.name }}'/>
+        </li>
+        <li>
+            <label for="select">Select a category:</label>
+            <div class="select-wrapper">
+                <select class="form-control" id="category_id" name="category_id">
+                    {% if recipe.category_id == 1 %}
+                        <option selected>Starter</option>
+                    {% else %}
+                        <option>Starter</option>
+                    {% endif %}
+                    {% if recipe.category_id == 2 %}
+                        <option selected>Fish</option>
+                    {% else %}
+                        <option>Fish</selected>
+                    {% endif %}
+                    {% if recipe.category_id == 3 %}
+                        <option selected>Meat</option>
+                    {% else %}
+                        <option>Meat</option>
+                    {% endif %}
+                    {% if recipe.category_id == 4 %}
+                        <option selected>Soup</option>
+                    {% else %}
+                        <option>Soup</option>
+                    {% endif %}
+                    {% if recipe.category_id == 5 %}
+                        <option selected>Vegan</option>
+                    {% else %}
+                        <option>Vegan</option>
+                    {% endif %}
+                    {% if recipe.category_id == 6 %}
+                        <option selected>Vegetarian</option>
+                    {% else %}
+                        <option>Vegetarian</option>
+                    {% endif %}
+                    {% if recipe.category_id == 7 %}
+                        <option selected>Dessert</option>
+                    {%else%}
+                        <option>Dessert</option>
+                    {%endif%}
+                </select>
+            </div>
+        </li>
+        <li>
+            <label for="recipe">Recipe:</label>
+            <textarea class="form-control" id="content" name="content" value="{{ recipe.content }}">{{ recipe.content }}</textarea>
+        </li>
+        <li class="button">
+            <button type="submit">Send your recipe</button>
+            
+        </li>
+    </ul>
+</form>
+
+
+<br><br>
+
+<button align='center'><a href="/">Back</a></button>
+
+{% endblock %}

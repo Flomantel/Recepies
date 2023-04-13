@@ -40,7 +40,7 @@ ul {
     
 }
 
-li:hover {
+li {
     font-size: 30px;
 }
 
@@ -97,3 +97,18 @@ table {
     width: 120px;
 }
 
+button {
+    border: 1px solid white;
+    padding: 5px 5px 5px 5px;
+    display: inline;
+    width: 100px;
+}
+
+.edit {
+    margin: 50%;
+    background-color: lightgray;
+    padding: 5px;
+    width: 120px;
+    align-items: center;
+    margin: auto;
+}

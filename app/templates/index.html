@@ -37,12 +37,15 @@
 
     <div class="shop">
         <ul margin="auto">
-            {% for slug, shop in merch.items() %}
+            {% for value in category %}
 
                 <li>
-                    <a href="/shop/{{slug}}"> {{ shop['name'] }}</a>
+                    <a href="/category/{{value.id}}"> {{ value.name }}</a>
+                    
                 </li>
             {% endfor %}
+                <li>
+                    <a href="/form">Create a new Recipe</a>
         </ul>
     </div>
     <br><br>

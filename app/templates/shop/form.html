@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% block head %}
+{{super()}}
+<link rel="stylesheet" href="static/css/form.css" />
+
+{% endblock %}
+
+{% block title %} Recipe's {% endblock %} 
+{% block body %}
+
+<form method="post" align="center">
+    <br /><br />
+    <ul decoration-style="none" aling="center">
+        <li>
+            <label for="name_recipe">Name of the recipe:</label>
+            <input type="text" id="name" name="name" />
+        </li>
+        <li>
+            <label for="select">Select a category:</label>
+            <div class="select-wrapper">
+                <select id="category_id" name="category_id">
+                    <option>Starter</option>
+                    <option>Soup</option>
+                    <option>Fish</option>
+                    <option>Meat</option>
+                    <option>Vegan</option>
+                    <option>Vegetarian</option>
+                    <option>Dessert</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <label for="recipe">Recipe:</label>
+            <textarea id="content" name="content"></textarea>
+        </li>
+        <li class="button">
+            <button type="submit">Send your recipe</button>
+            
+        </li>
+    </ul>
+</form>
+
+
+<br><br>
+
+<button align='center'><a href="/">Back</a></button>
+{% endblock %}
