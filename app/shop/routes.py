@@ -88,3 +88,5 @@ def get_category_number(category_name):
     elif category_name == "Dessert":
         category_id_number = 7
     return category_id_number
+
+
