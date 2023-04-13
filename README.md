@@ -11,4 +11,5 @@ COPYING/ LICENSE:
 Copyright by Florian Mantel
 
 BUGS:
-No bugs known yet
+I have to reload the tables with https://cfm-pfa.onrender.com/seed and https://cfm-pfa.onrender.com/see_em
+
