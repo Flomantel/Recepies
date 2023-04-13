@@ -1,13 +1,8 @@
-from app.app import create_app
 from app.shop.models import Category, Recipe
 from app.extensions.database import db
 from flask import Blueprint
 
 seed_blueprint = Blueprint("seed", __name__)
-
-if __name__ == '__main__':
-    app = create_app()
-    app.app_context().push()
 
 
 category_data = {

@@ -1,13 +1,8 @@
 from app.extensions.database import db
 from app.simple_pages.models import Work
-from app.app import create_app
 from flask import Blueprint
 
 seed_em_blueprint = Blueprint("seed_em", __name__)
-
-if __name__=='__main__':
-    app = create_app()
-    app.app_context().push()
 
 work_data = {
     "hotel-mercure": {"name": "Hotel Mercure", "employed-as": "Trainee"},
@@ -41,5 +36,5 @@ def seed_em():
         new_work = Work(name=value['name'], employed=value['employed-as'])
         db.session.add(new_work)
     db.session.commit()
-    
+
     return "OK"
