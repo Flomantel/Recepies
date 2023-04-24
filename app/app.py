@@ -7,7 +7,6 @@ from app.scripts.seed_em import seed_em_blueprint
 def create_app():
     app = Flask(__name__)
     app.config.from_object('app.config')
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
     #app.secret_key = '16'
 
     register_extensions(app)
