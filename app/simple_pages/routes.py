@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, send_file, request
 from .models import Work
+from app.shop.models import Category
+from app.scripts.seed import seeding
+import json
 
 blueprint = Blueprint("work", __name__)
-
 
 
 @blueprint.route("/profession")
@@ -16,6 +18,14 @@ def flo_ma():
     return render_template("about.html")
 
 
-# @blueprint.route("/contact")
-# def contact():
-#     return send_file("../static/download/contact.txt", as_attachment=True)
+@blueprint.route("/run-seed")
+def run_seed():
+    seeding()
+    category = Category.query.all()
+    new_dict = {}
+    x = 0
+    for item in category:
+        new_dict[f"{x}"] = item.id
+        x +=1
+        print(item.id)
+    return json.dumps(new_dict)
