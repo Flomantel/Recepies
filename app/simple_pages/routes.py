@@ -16,6 +16,6 @@ def flo_ma():
     return render_template("about.html")
 
 
-@blueprint.route("/contact")
-def contact():
-    return send_file("../static/download/contact.txt", as_attachment=True)
+# @blueprint.route("/contact")
+# def contact():
+#     return send_file("../static/download/contact.txt", as_attachment=True)

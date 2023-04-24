@@ -1,6 +1,8 @@
 from app.shop.models import Category, Recipe
 from app.extensions.database import db
 from flask import Blueprint
+from app.simple_pages.models import Work
+
 
 seed_blueprint = Blueprint("seed", __name__)
 
@@ -21,15 +23,33 @@ recipe_data = {
 
 @seed_blueprint.route('/seed')
 def seed():
+    print("test1")
     for key, category in category_data.items():
+        print(key)
         new_category = Category( name=category['name'])
-        db.session.add(new_category)
+        print(new_category)
+        new_category.save()
+
+    print("test2")
+    # for key, recipe in recipe_data.items():
+    #     new_recipe = Recipe(name=recipe['name'], content=recipe['content'], category_id=recipe['category_id'])
+    #     db.session.add(new_recipe)
 
     db.session.commit()
+    return "Added categories"
 
-    for key, recipe in recipe_data.items():
-        new_recipe = Recipe(name=recipe['name'], content=recipe['content'], category_id=recipe['category_id'])
-        db.session.add(new_recipe)
+@seed_blueprint.route('/delete-seed')
+def delete_seed():
+    categories = Category.query.all()
+    for category in categories:
+        category.delete()
+    
+    recipes = Recipe.query.all()
+    for recipe in recipes:
+        recipe.delete()
+    
+    works = Work.query.all()
+    for work in works:
+        work.delete()
 
-    db.session.commit()
-    return "OK"
+    return "Deleted seed"
