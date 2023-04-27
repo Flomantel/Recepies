@@ -37,18 +37,18 @@ def seeding():
     db.session.commit()
 
 
-@seed_blueprint.route('/delete-seed')
-def delete_seed():
-    categories = Category.query.all()
-    for category in categories:
-        category.delete()
+# @seed_blueprint.route('/delete-seed')
+# def delete_seed():
+#     categories = Category.query.all()
+#     for category in categories:
+#         category.delete()
     
-    recipes = Recipe.query.all()
-    for recipe in recipes:
-        recipe.delete()
+#     recipes = Recipe.query.all()
+#     for recipe in recipes:
+#         recipe.delete()
     
-    works = Work.query.all()
-    for work in works:
-        work.delete()
+#     works = Work.query.all()
+#     for work in works:
+#         work.delete()
 
-    return "Deleted seed"
+#     return "Deleted seed"

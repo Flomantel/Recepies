@@ -30,11 +30,11 @@ work_data = {
     "schmelzwerk": {"name": "Schmelzwerk", "employed-as": "Chef de Cuisine"},
 }
 
-@seed_em_blueprint.route("/seed_em")
-def seed_em():
-    for key, value in work_data.items():
-        new_work = Work(name=value['name'], employed=value['employed-as'])
-        db.session.add(new_work)
-    db.session.commit()
+# @seed_em_blueprint.route("/seed_em")
+# def seed_em():
+#     for key, value in work_data.items():
+#         new_work = Work(name=value['name'], employed=value['employed-as'])
+#         db.session.add(new_work)
+#     db.session.commit()
 
-    return "OK"
+#     return "OK"
